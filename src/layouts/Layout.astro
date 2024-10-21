@@ -25,10 +25,6 @@ const { title } = Astro.props;
     class="min-h-screen"
     style={`
       background-color: ${config.background.color};
-      background-image: url(${config.background.image});
-      background-size: cover; /* This will make the image cover the entire background */
-      background-repeat: no-repeat; /* This will prevent the image from repeating */
-      background-position: center center; /* This will center the image */
     `}
   >
     <slot />

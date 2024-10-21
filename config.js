@@ -1,5 +1,5 @@
 // @ts-check
-import profileImage from './src/images/CuriousCodersLogo.jpeg?url';
+import profileImage from './src/images/cc-logo.png?url';
 import backgroundImage from './src/images/backgrounds/watercolor-pink-blue-orange.png?url';
 import productImage from './src/images/product1.png?url';
 
@@ -11,39 +11,24 @@ const config = {
     profileImage: profileImage,
   },
   background: {
-    color: "#23265F",
+    color: "#0c0b1e",
     image: backgroundImage,
   },
   socialLinks: [
-    {
-      platform: "youtube",
-      url: "https://www.youtube.com/@Curious-Coders",
-      icon: "youtube",
-    },
-    {
-      platform: "linkedin",
-      url: "https://linkedin.com/in/cory-trimm",
-      icon: "linkedin",
-    },
-    {
-      platform: "email",
-      url: "https://threads.net/@journey.unknown",
-      icon: "envelope",
-    },
     // {
-    //   platform: "spotify",
-    //   url: "https://spotify.com",
-    //   icon: "spotify",
+    //   platform: "youtube",
+    //   url: "https://www.youtube.com/@Curious-Coders",
+    //   icon: "youtube",
     // },
     // {
-    //   platform: "snapchat",
-    //   url: "https://snapchat.com",
-    //   icon: "snapchaat",
+    //   platform: "linkedin",
+    //   url: "https://linkedin.com/in/...",
+    //   icon: "linkedin",
     // },
     // {
-    //   platform: "tiktok",
-    //   url: "https://tiktok.com",
-    //   icon: "tiktok",
+    //   platform: "envelope",
+    //   url: "mailto:hello@curiouscoders.co.uk",
+    //   icon: "envelope",
     // },
     // Add more social links as needed
     // Search for icons here - https://fontawesome.com/search
@@ -61,7 +46,7 @@ const config = {
     },
     {
       title: "Get in touch",
-      url: "https://youtube.com/c/corytrimm",
+      url: "mailto:hello@curiouscoders.co.uk",
       icon: "envelope",
     },
     // Add more links as needed
