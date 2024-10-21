@@ -1,7 +1,6 @@
 // @ts-check
 import profileImage from './src/images/cc-logo.png?url';
 import backgroundImage from './src/images/backgrounds/watercolor-pink-blue-orange.png?url';
-import productImage from './src/images/product1.png?url';
 
 /** @type {import('./src/types').SiteConfig} */
 const config = {
