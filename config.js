@@ -39,9 +39,14 @@ const config = {
       icon: "play",
     },
     {
-      title: "Subscribe to the newsletter",
+      title: "Subscribe to our newsletter",
       url: "https://curiouscoders.substack.com/",
       icon: "newspaper",
+    },
+    {
+      title: "Fix the Space Ship - A STEM Engagement Escape Room",
+      url: "https://github.com/brggs/Fix-The-SpaceShip-Escape-Room",
+      icon: "rocket",
     },
     {
       title: "Get in touch",
