@@ -14,21 +14,22 @@ const config = {
     image: backgroundImage,
   },
   socialLinks: [
-    // {
-    //   platform: "youtube",
-    //   url: "https://www.youtube.com/@Curious-Coders",
-    //   icon: "youtube",
-    // },
-    // {
-    //   platform: "linkedin",
-    //   url: "https://linkedin.com/in/...",
-    //   icon: "linkedin",
-    // },
-    // {
-    //   platform: "envelope",
-    //   url: "mailto:hello@curiouscoders.co.uk",
-    //   icon: "envelope",
-    // },
+    {
+      url: "https://www.instagram.com/mrabriggs/",
+      icon: "fab fa-instagram",
+    },
+    {
+      url: "https://www.youtube.com/@Curious-Coders",
+      icon: "fab fa-youtube",
+    },
+    {
+      url: "https://bsky.app/profile/andy.curiouscoders.co.uk",
+      icon: "fab fa-bluesky",
+    },
+    {
+      url: "mailto:hello@curiouscoders.co.uk",
+      icon: "fas fa-envelope",
+    },
     // Add more social links as needed
     // Search for icons here - https://fontawesome.com/search
   ],
@@ -49,6 +50,11 @@ const config = {
       icon: "rocket",
     },
     {
+      title: "How to: Build your own escape room puzzle with the micro:bit",
+      url: "https://curiouscoders.substack.com/p/build-your-own-escape-room-puzzle",
+      icon: "microchip",
+    },
+    {
       title: "Get in touch",
       url: "mailto:hello@curiouscoders.co.uk",
       icon: "envelope",
@@ -62,16 +68,16 @@ const config = {
     //   url: "https://inshortpod.com",
     //   price: 19.99,
     //   includePriceOnSite: true,
-    //   image: productImage,
+    //   image: '',
     // },
     // Add more products as needed
   ],
 };
 
-export const analytics = {
-  posthog: {
-    enableTracking: false
-  }
-};
+// export const analytics = {
+//   posthog: {
+//     enableTracking: false
+//   }
+// };
 
 export default config;

@@ -9,7 +9,6 @@ export interface SiteConfig {
     image: string;
   };
   socialLinks: Array<{
-    platform: string;
     url: string;
     icon?: string;
   }>;
