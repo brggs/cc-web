@@ -1,91 +1,73 @@
-html {
-  background-color: #f1f5f9;
-  font-family: sans-serif;
-}
+@import "tailwindcss";
 
-body {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 80ch;
-  padding: 1rem;
-  line-height: 1.5;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-h1 {
-  margin: 1rem 0;
-  font-size: 2.5rem;
-}
-
-/* nav styles */
-.hamburger {
-  padding-right: 20px;
-  cursor: pointer;
-}
-
-.hamburger .line {
-  display: block;
-  width: 40px;
-  height: 5px;
-  margin-bottom: 10px;
-  background-color: #ff9776;
-}
-
-.nav-links {
-  width: 100%;
-  top: 5rem;
-  left: 48px;
-  background-color: #ff9776;
-  display: none;
-  margin: 0;
-}
-
-.nav-links a {
-  display: block;
-  text-align: center;
-  padding: 10px 0;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.nav-links a:hover,
-.nav-links a:focus {
-  background-color: #ff9776;
-}
-
-.expanded {
-  display: unset;
-}
-
-html.dark {
-    background-color: #0d0950;
-    color: #fff;
-  }
-  
-  .dark .nav-links a {
-    color: #fff;
+@layer base {
+  * {
+    @apply box-border;
   }
 
-@media screen and (min-width: 636px) {
+  html {
+    @apply bg-light dark:bg-dark font-sans;
+  }
+
+  body {
+    @apply mx-auto w-full max-w-[80ch] p-4 leading-relaxed;
+  }
+
+  h1 {
+    @apply my-4 text-4xl;
+  }
+
+  html.dark {
+    @apply text-white;
+  }
+}
+
+@layer components {
+  /* Hamburger menu styles */
+  .hamburger {
+    @apply pr-5 cursor-pointer;
+  }
+
+  .hamburger .line {
+    @apply block w-10 h-[5px] mb-[10px] bg-primary;
+  }
+
+  /* Navigation styles */
   .nav-links {
-    margin-left: 5em;
-    display: block;
-    position: static;
-    width: auto;
-    background: none;
+    @apply w-full top-20 left-12 bg-primary hidden m-0;
   }
 
   .nav-links a {
-    display: inline-block;
-    padding: 15px 20px;
+    @apply block text-center py-[10px] no-underline text-lg font-bold uppercase;
   }
 
-  .hamburger {
-    display: none;
+  .nav-links a:hover,
+  .nav-links a:focus {
+    @apply bg-primary;
+  }
+
+  .dark .nav-links a {
+    @apply text-white;
+  }
+
+  .expanded {
+    @apply block;
+  }
+}
+
+@layer utilities {
+  /* Media query transformed into responsive utilities */
+  @media screen and (min-width: 636px) {
+    .nav-links {
+      @apply ml-20 block static w-auto bg-transparent;
+    }
+
+    .nav-links a {
+      @apply inline-block px-5 py-[15px];
+    }
+
+    .hamburger {
+      @apply hidden;
+    }
   }
 }
