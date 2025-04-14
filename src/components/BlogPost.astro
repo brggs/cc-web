@@ -1,5 +1,22 @@
 ---
-const { url, title } = Astro.props;
+const { url, title, pubDate, description, image } = Astro.props;
 ---
 
-<li><a href={url}>{title}</a></li>
+<li class="mb-8">
+  <a href={url} class="block bg-indigo-900 rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105">
+    <div class="relative h-48 overflow-hidden">
+      {image && (
+        <img 
+          src={image.url} 
+          alt={image.alt || title} 
+          class="w-full h-full object-cover"
+        />
+      )}
+    </div>
+    <div class="p-5">
+      <h2 class="text-xl font-bold mb-2 text-white">{title}</h2>
+      {pubDate && <p class="text-indigo-300 text-sm mb-2">{new Date(pubDate).toLocaleDateString()}</p>}
+      {description && <p class="text-gray-300">{description}</p>}
+    </div>
+  </a>
+</li>

@@ -16,10 +16,16 @@ const allPosts = Object.values(
 
   <section class="bg-indigo-950 py-12">
     <Container>
-      <ul>
+      <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {
           allPosts.map((post: any) => (
-            <BlogPost url={post.url} title={post.frontmatter.title} />
+            <BlogPost 
+              url={post.url} 
+              title={post.frontmatter.title}
+              pubDate={post.frontmatter.pubDate}
+              description={post.frontmatter.description}
+              image={post.frontmatter.image}
+            />
           ))
         }
       </ul>
