@@ -1,8 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const pageTitle = "Home Page";
+import Hero from "../components/Hero.astro";
+import LatestVideo from "../components/LatestVideo.astro";
+
+const pageTitle = "Home";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <h2>My awesome blog subtitle</h2>
+  <Hero />
+  <LatestVideo />
 </BaseLayout>

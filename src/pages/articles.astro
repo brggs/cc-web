@@ -1,0 +1,28 @@
+---
+import BlogPost from "../components/BlogPost.astro";
+import Container from "../components/Container.astro";
+import TitleImage from "../components/TitleImage.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
+
+const pageTitle = "Articles";
+const allPosts = Object.values(
+  import.meta.glob("./articles/*.md", { eager: true })
+);
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <TitleImage pageTitle={pageTitle} , pageDescription="Turorials and tips" />
+
+  <section class="bg-indigo-950 py-12">
+    <Container>
+      <ul>
+        {
+          allPosts.map((post: any) => (
+            <BlogPost url={post.url} title={post.frontmatter.title} />
+          ))
+        }
+      </ul>
+    </Container>
+  </section>
+</BaseLayout>

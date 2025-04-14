@@ -1,0 +1,15 @@
+---
+//TODO Import picture, image in props
+import Container from "./Container.astro";
+
+const { pageTitle, pageDescription } = Astro.props;
+---
+
+<div
+  class="mt-[-90px] pt-20 h-72 bg-gray-900 bg-[url(/public/hero-bg.png)] bg-blend-overlay"
+>
+  <Container>
+    <h1 class="text-pink-600 font-bold md:ml-32 mt-24 text-5xl">{pageTitle}</h1>
+    <h2 class="md:ml-38 text-xl">{pageDescription}</h2>
+  </Container>
+</div>
