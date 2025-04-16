@@ -2,6 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 import LatestVideo from "../components/LatestVideo.astro";
+import CallToAction from "../components/CallToAction.astro";
+import LatestArticles from "../components/LatestArticles.astro";
 
 const pageTitle = "Home";
 ---
@@ -9,4 +11,6 @@ const pageTitle = "Home";
 <BaseLayout pageTitle={pageTitle}>
   <Hero />
   <LatestVideo />
+  <LatestArticles />
+  <CallToAction />
 </BaseLayout>

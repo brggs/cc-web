@@ -1,6 +1,9 @@
 ---
 import Container from "./Container.astro";
 
+import { Picture } from 'astro:assets';
+import logo from '../assets/cc-logo.png';
+
 const links = [
 { url: "/news", display: "News" },
 { url: "/tutorials", display: "Tutorials" },
@@ -15,7 +18,10 @@ const currentYear = new Date().getFullYear();
   <Container>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div>
-        <h3 class="text-xl font-bold text-primary mb-4">Curious Coders</h3>
+        <div class="flex items-center py-4">
+          <Picture class="w-16 mr-2 rounded-full" src={logo} formats={['avif', 'webp']} alt="The Curious Coders Logo, white text on a pink background." />
+          <h3 class="text-xl font-bold text-primary">Curious Coders</h3>
+        </div>
         <p class="text-sm text-gray-600 dark:text-gray-400">
           Learning, coding, and exploring together in the world of software
           development.
@@ -25,24 +31,10 @@ const currentYear = new Date().getFullYear();
       <div>
         <h3 class="text-lg font-semibold mb-4">Navigation</h3>
         <ul class="space-y-2">
+          {links.map((link) => 
           <li>
-            <a
-              href="/"
-              class="text-gray-600 dark:text-gray-400 hover:text-primary"
-              >Home</a>
-          </li>
-          <li>
-            <a
-              href="/about/"
-              class="text-gray-600 dark:text-gray-400 hover:text-primary"
-              >About</a>
-          </li>
-          <li>
-            <a
-              href="/blog/"
-              class="text-gray-600 dark:text-gray-400 hover:text-primary"
-              >Blog</a>
-          </li>
+            <a href=`${link.url}` class="text-gray-600 dark:text-gray-400 hover:text-primary">{link.display}</a>
+          </li>)}
         </ul>
       </div>
 

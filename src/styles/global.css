@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@plugin "@tailwindcss/typography";
+
 @theme {
   --font-sans: 'Jost', 'sans-serif';
 }
@@ -20,6 +22,12 @@
   h1 {
     @apply my-4 text-4xl;
   }
+
+  /* .prose {
+    img {
+      @apply max-h-64;
+    }
+  } */
 }
 
 @layer components {
