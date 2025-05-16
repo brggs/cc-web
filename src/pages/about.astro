@@ -1,21 +1,45 @@
 ---
+import Container from "../components/Container.astro";
 import TitleImage from "../components/TitleImage.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "About Me";
+const description = "...";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <TitleImage title={pageTitle} , description="Tutorials and tips" />
-    <h2>... and my new Astro site!</h2>
+  <TitleImage title={pageTitle} , description={description} />
 
-    <p>
-      I am working through Astro's introductory tutorial. This is the second
-      page on my website, and it's the first one I built myself!
-    </p>
+  <section class="bg-pink-700 py-12">
+    <Container>
+      <div class="flex flex-col md:flex-row gap-8 items-center">
+        <div class="w-full md:w-1/2">
+          <img src="https://placehold.co/600x400" />
+        </div>
+        <div class="w-full md:w-1/2">
+          <h3 class="text-xl font-bold mb-3">
+            Curoius Codes is the side project of Software Engineer Andy Briggs.
+          </h3>
+          <p class="mb-4">
+            Enjoy teaching
 
-    <p>
-      This site will update as I complete more of the tutorial, so keep checking
-      back and see how my journey is going!
-    </p>
+            Enjoy making things
+
+            Excuse to play with fun toys!
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <section class="py-12">
+    <Container>
+      <h2>Connect with me</h2>
+
+      <p>
+        I am working through Astro's introductory tutorial. This is the second
+        page on my website, and it's the first one I built myself!
+      </p>
+    </Container>
+  </section>
 </BaseLayout>
