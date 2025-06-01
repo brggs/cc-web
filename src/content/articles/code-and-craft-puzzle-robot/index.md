@@ -19,7 +19,9 @@ We’re going to design and make our robot out of cardboard, come up with a secr
 
 We'll code the robot give a clue, then it will be up to your freidns to work out what to do.
 
-### What you’ll need
+## What you’ll need
+
+![Code...](make-parts.jpg)
 
 To build your robot, you will need:
 * One [micro:bit](https://microbit.org)\*, with a battery pack and cable for programming
@@ -34,33 +36,39 @@ To build your robot, you will need:
 
 \* Don’t worry if you don’t have a micro:bit, many libraries in the UK have them available to borrow for free.  They are also inexpensive if you'd like to buy one of your own.
 
-### Crafting the robot
+## Crafting the robot
 
 Start with a piece of coloured card, roughly A5 size.  This is going to be the main colour of the robot, so pick the colour you’d like.
 
 Next stick this to a piece of the thicker cardboard, to give it some strength.  We’ll be cutting our robot shape out of this later, so the edges don’t need to line up neatly.
 
-PIC
+![Code...](make-1.jpg)
 
 Now use a pencil draw the outline of our robot.  There are all sorts of shapes you can choose from - you can give it a head and feet, or give it a big rounded body like R2D2.  Use your imagination and go for whatever you like!
 
-PIC - examples of robot shapes
+![Code...](make-2.jpg)
 
 Now we need to decide where the micro:bit is going to go.  We need to leave enough space for it to be attached later on, so place in on the robot and draw a pencil line to mark the shape.  I’ve put the micro:bit in the middle of most of my robots, but it could also work well as the head!
 
-PIC drawing round MB
+![Code...](make-4.jpg)
 
 You could now pencil in a few draft lines showing how you’d like to decorate the robot - where you might put stickers or cut out card to add features.
 
 Now it’s time to cut the robot out, following the line you drew earlier.
 
-And finally, add some decorations to the robots to bring them to life!  You can use a different coloured card to add on features, marker pens to add details and colours (metallic pens would be ideal!) or even add stickers or things like googly eyes!
+![Code...](make-3.jpg)
 
-PIC
+![Code...](make-5.jpg)
 
-Now our robots are ready, it’s time to add the micro:bit!
+And finally, add some decorations to the robots to bring them to life!  You can use a different coloured card to add on features, marker pens to draw details and colours (metallic pens would be ideal for this) or even add stickers or things like googly eyes!
 
-### Designing the puzzle
+![Code...](make-6.jpg)
+
+Now our robots are ready, it’s time to move on to the micro:bit!
+
+![Code...](make-7.jpg)
+
+## Designing the puzzle
 We’re going to program our micro:bit so that it reveals a password when someone performs a secret action.
 
 The micro:bit has loads of features you can use for this.  For example, you could show the password when your micro:bit robot:
@@ -75,7 +83,7 @@ Have a look at [the micro:bit website](https://microbit.org/get-started/features
 
 We'll look at how to program a few of these options in the next section.
 
-### Writing the code
+## Writing the code
 
 We’re going to use the [Microsoft MakeCode for micro:bit](https://makecode.microbit.org/) website to program our micro bits.  Open the site up, then click *New Project*.
 
@@ -98,7 +106,7 @@ The code gets a little bit more complicated here.  We used the simple input bloc
 
 ![Code...](code-double.png)
 
-### Giving a clue
+## Giving a clue
 
 We need to give people a clue for how to get the password, so let’s add some code to scroll it on the screen when we press the A button.  Here's the code to give the clue for our shake bot.
 
@@ -123,29 +131,37 @@ Connect your micro:bit using youClick the *Download* buttonm
 , and test that the puzzle and the clue are working.
 
 
-### Attaching the micro bit
+## Attaching the micro bit
 
 Now all we need to do is attach our micro:bit to the robot.
 
 Hold your micro:bit up to the robot, in the spot you marked earlier and use a pencil to mark the two holes in the bottom corners.
 
-PIC
+![Code...](make-8.jpg)
 
 Then take the microbit away, and poke the pencil through to make holes, with some blutack or something similar behind the robot so the pencil doesn’t damage anything.
 
-PIC
+![Code...](make-9.jpg)
 
 Now put the micro:bit back into position, and secure it with two split pins (or nuts and bolts if you have any!)
 
-PIC
-
 Finally, poke a hole for the battery cable, and then tape that onto the back.
 
-PIC
+![Code...](make-10.jpg)
 
-### Your robot is ready!
+
+![Code...](make-11.jpg)
+
+Pushe battery cable through, and connect it up
+
+![Code...](make-12.jpg)
+
+## Your robot is ready!
 
 Congratulations, you’ve created your own puzzle robot!  Now it’s time to challenge your friends - can they figure out the clue and work out how to get the password?
+
+![Code...](make-13.jpg)
+
 
 Go back and try a different actin to get the password, or try these ideas for taking it to hte next level
 

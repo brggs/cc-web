@@ -3,6 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 const { pageTitle } = Astro.props;
+const isProd = import.meta.env.PROD;
 ---
 
 <html lang="en">
@@ -17,7 +18,19 @@ const { pageTitle } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    {
+      isProd && (
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="7a77f414-ac3e-4dff-9616-1473b8d09003"
+        />
+      )
+    }
     <title>{pageTitle} - Curious Coders</title>
   </head>
   <body class="min-h-screen">
