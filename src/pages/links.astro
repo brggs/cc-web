@@ -2,6 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Container from "../components/Container.astro";
 import LinkButton from "../components/LinkButton.astro";
+
+import headerBackground from '../assets/header-bg.png';
 const pageTitle = "Links";
 
 const links = [
@@ -35,7 +37,8 @@ const links = [
 
 <BaseLayout pageTitle={pageTitle}>
   <section
-    class="mt-[-90px] pt-20 h-200 bg-gray-600 bg-[url(/public/hero-bg.png)] bg-blend-overlay"
+    class="mt-[-90px] pt-20 h-200 bg-gray-600 bg-blend-overlay"
+  style={`background-image: url(${headerBackground.src})`}
   >
     <Container>
       <div class="px-8 pt-6 pb-2 flex flex-col items-center text-center">

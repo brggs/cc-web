@@ -6,9 +6,8 @@ import logo from '../assets/cc-logo.png';
 import CallToAction from "./CallToAction.astro";
 
 const links = [
-{ url: "/news", display: "News" },
-{ url: "/tutorials", display: "Tutorials" },
-{ url: "/activities", display: "Activities" },
+{ url: "/", display: "Home" },
+{ url: "/articles", display: "Articles" },
 { url: "/about", display: "About" },
 ];
 
@@ -24,9 +23,8 @@ const currentYear = new Date().getFullYear();
           <Picture class="w-16 mr-2 rounded-full" src={logo} formats={['avif', 'webp']} alt="The Curious Coders Logo, white text on a pink background." />
           <h3 class="text-xl font-bold text-primary">Curious Coders</h3>
         </div>
-        <p class="text-sm text-gray-600 dark:text-gray-400">
-          Learning, coding, and exploring together in the world of software
-          development.
+        <p class="text-sm text-gray-300">
+          Fun and engaging coding & tech videos, tutorials and activities that spark creativity and build tech skills for the future.
         </p>
       </div>
 
@@ -42,26 +40,8 @@ const currentYear = new Date().getFullYear();
 
       <div>
         <h3 class="text-lg font-semibold mb-4">Connect</h3>
-        <ul class="space-y-2">
-          <li>
-            <a
-              href="https://github.com/withastro"
-              class="text-gray-600 dark:text-gray-400 hover:text-primary"
-              >GitHub</a>
-          </li>
-          <li>
-            <a
-              href="https://twitter.com/astrodotbuild"
-              class="text-gray-600 dark:text-gray-400 hover:text-primary"
-              >Twitter</a>
-          </li>
-          <li>
-            <a
-              href="https://discord.gg/astro"
-              class="text-gray-600 dark:text-gray-400 hover:text-primary"
-              >Discord</a>
-          </li>
-        </ul>
+        <p>Get in touch:</p>
+        <a href="mailto:hello@curiouscoders.co.uk">hello@curiouscoders.co.uk</a>
       </div>
     </div>
 
