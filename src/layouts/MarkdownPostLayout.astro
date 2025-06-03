@@ -1,0 +1,58 @@
+---
+import TitleImage from "../components/TitleImage.astro";
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout pageTitle={frontmatter.title}>
+  <TitleImage title={frontmatter.title} , description={frontmatter.description}, author={frontmatter.author}, date={frontmatter.pubDate.toLocaleDateString()} />
+
+  <section class="py-8">
+    <div class="max-w-4xl mx-auto px-6 md:px-12">
+      <!-- {frontmatter.image && (
+        <img
+          src={frontmatter.image.url}
+          width="300"
+          alt={frontmatter.image.alt || frontmatter.title}
+        />
+      )} -->
+
+      <!-- {frontmatter.tags && frontmatter.tags.length > 0 && (
+        <div class="tags">
+          {
+            frontmatter.tags.map((tag: string) => (
+              <p class="tag">
+                <a href={`/tags/${tag}`}>{tag}</a>
+              </p>
+            ))
+          }
+        </div>
+      )} -->
+
+      <div class="mx-auto prose prose-pink prose-invert prose-h2:text-pink-400 prose-img:mx-auto prose-img:rounded-2xl">
+        <slot />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  a {
+    color: #00539f;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    font-size: 1.15em;
+    background-color: #f8fcfd;
+  }
+</style>

@@ -1,0 +1,48 @@
+---
+import Container from "./Container.astro";
+---
+
+<section class="bg-pink-700 py-12">
+  <Container>
+    <h2 class="text-2xl text-center font-semibold mb-6">Latest Video</h2>
+    <div class="flex flex-col md:flex-row gap-8 items-center">
+      <div class="w-full md:w-1/2">
+        <h3 class="text-xl font-bold mb-3">
+          Coding a virtual pet with OctoStudio
+        </h3>
+        <p class="mb-4">
+          Join Ellie and me, as we use OctoStudio to code a virtual pet.  It will eat, sleep and dance at the disco!
+        </p>
+        <div class="flex items-center space-x-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-5 h-5 text-primary"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+          </svg>
+          <span>9 minutes</span>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2">
+        <div class="relative aspect-video rounded-lg overflow-hidden drop-shadow-lg">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/1wLvDtTDNdo"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            class="absolute top-0 left-0 w-full h-full"></iframe>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

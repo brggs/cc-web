@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+
+import Container from "./Container.astro";
+import BlogPost from "./BlogPost.astro";
+
+const latestPosts = await getCollection("articles").then((entries) =>
+  entries
+    .sort(
+      (a, b) =>
+        new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+    )
+    .slice(0, 3)
+);
+---
+
+<section class="py-12">
+  <Container>
+    <h2 class="text-2xl font-semibold text-center mb-6">Latest Articles</h2>
+    <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        latestPosts.map((post) => (
+          <BlogPost
+            url={`/articles/${post.slug}`}
+            title={post.data.title}
+            pubDate={post.data.pubDate}
+            description={post.data.description}
+            image={post.data.image}
+          />
+        ))
+      }
+    </ul>
+  </Container>
+</section>

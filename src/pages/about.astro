@@ -1,0 +1,85 @@
+---
+import Container from "../components/Container.astro";
+import TitleImage from "../components/TitleImage.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import { Picture } from "astro:assets";
+import abImage from "../assets/ab.png";
+
+const pageTitle = "About Curious Coders";
+const description = "...";
+
+const socialLinks = [
+    {
+      url: "https://www.instagram.com/mrabriggs/",
+      icon: "fab fa-instagram",
+    },
+    {
+      url: "https://www.linkedin.com/in/brggs/",
+      icon: "fab fa-linkedin",
+    },
+    {
+      url: "https://bsky.app/profile/andy.curiouscoders.co.uk",
+      icon: "fab fa-bluesky",
+    },
+    {
+      url: "https://github.com/brggs",
+      icon: "fab fa-github",
+    },
+  ]
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <TitleImage title={pageTitle} , description={description} />
+
+  <section class="bg-pink-700 py-12">
+    <Container>
+      <div
+        class="max-w-4xl mx-auto flex flex-col md:flex-row gap-8 items-center"
+      >
+        <div class="w-full md:w-1/3">
+          <Picture
+            class="w-48 md:w-72 rounded-2xl"
+            src={abImage}
+            formats={["avif", "webp"]}
+            alt="The Curious Coders Logo, white text on a pink background."
+          />
+        </div>
+        <div class="w-full md:w-2/3">
+          <h3 class="text-xl font-bold mb-3">
+            Curious Coders is the side project of software engineer Andy Briggs.
+          </h3>
+          <p class="mb-4">
+            After many years working in software and technology, I started getting more involved in STEM outreach
+            and education and found I really enjoyed it.
+          </p>
+          <p class="mb-4">
+            I started a coding club in our local library, which I've run for the last 3 years, and
+            have also taken part in lots of events as a STEM ambassador. 
+          </p>
+          <p class="mb-4">In 2024, I started Curious Coders as a way of doing more in this space.  I've since written articles, created videos and designed activities for events for the Scouts/Guides, and CyberFirst's EmPower.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <section class="py-8">
+    <div class="max-w-4xl mx-auto px-6 md:px-12 text-center">
+      <h2 class="text-3xl">Get in touch</h2>
+      <div class="flex justify-center space-x-4 md:space-x-8 my-4">
+        {socialLinks.map((link) => (
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-slate-50 hover:text-slate-200 transition-colors duration-300 text-2xl sm:text-3xl md:text-4xl hover:animate-wiggle"
+          >
+            <i class={`${link.icon} font-bold`}></i>
+          </a>
+        ))}
+      </div>
+      <p class="text-xl mb-6"><a href="mailto:andy@curiouscoders.co.uk">andy@curiouscoders.co.uk</a></p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,36 @@
+---
+import BlogPost from "../components/BlogPost.astro";
+import Container from "../components/Container.astro";
+import TitleImage from "../components/TitleImage.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const pageTitle = "Articles";
+const allPosts = await getCollection("articles");
+
+allPosts.sort((a, b) => {
+   return b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+ });
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <TitleImage title={pageTitle} , description="Tutorials and tips" />
+
+  <section class="py-12">
+    <Container>
+      <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          allPosts.map((post) => (
+            <BlogPost 
+              url={`/articles/${post.slug}`}
+              title={post.data.title}
+              pubDate={post.data.pubDate}
+              description={post.data.description}
+              image={post.data.image}
+            />
+          ))
+        }
+      </ul>
+    </Container>
+  </section>
+</BaseLayout>

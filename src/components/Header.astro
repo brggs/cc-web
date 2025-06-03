@@ -1,0 +1,62 @@
+---
+import Hamburger from "./Hamburger.astro";
+
+import { Picture } from 'astro:assets';
+import logo from '../assets/cc-logo.png';
+
+const links = [
+{ url: "/articles", display: "Articles" },
+// { url: "/activities", display: "Activities" },
+{ url: "/about", display: "About" },
+];
+
+---
+
+<header
+  id="site-header"
+  class="sticky top-0 z-10 w-full left-0 right-0 transition-colors duration-300"
+>
+  <div class="max-w-6xl mx-auto px-4">
+    <nav class="flex justify-between items-center py-4">
+      <a href="/" class="md:px-2 md:py-1 hover:text-primary flex">
+        <Picture class="w-8 mr-2 rounded-full" src={logo} formats={['avif', 'webp']} alt="The Curious Coders Logo, white text on a pink background." />
+        <div class="text-2xl font-bold text-primary">Curious Coders</div>
+      </a>  
+      <Hamburger />
+      <div class="nav-links hidden absolute left-0 w-full top-16 bg-black/90 flex flex-col py-4 md:static md:flex md:flex-row md:space-x-2 md:bg-transparent md:py-0 md:w-auto md:justify-end">
+        {links.map((link) => <a href=`${link.url}` class="block text-center w-full p-3 md:px-2 md:py-1 hover:text-primary">{link.display}</a>)}
+        <a href="https://www.youtube.com/@Curious-Coders" target="_blank" class="mx-auto md:mx-0 my-2 md:my-0 px-6 py-2 md:px-2 md:py-1 hover:text-primary button bg-pink-600 rounded-full flex items-center"><i class={`fa-brands fa-youtube mr-2`} />YouTube</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  #site-header {
+    background-color: transparent;
+  }
+
+  :global(.scrolled) #site-header {
+    background-color: #000000bb;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        document.documentElement.classList.add("scrolled");
+      } else {
+        document.documentElement.classList.remove("scrolled");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+  });
+
+  document.querySelector(".hamburger")?.addEventListener("click", () => {
+    document.querySelector(".nav-links")?.classList.toggle("hidden");
+  });
+
+</script>

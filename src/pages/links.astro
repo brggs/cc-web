@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Container from "../components/Container.astro";
+import LinkButton from "../components/LinkButton.astro";
+
+import headerBackground from '../assets/header-bg.png';
+const pageTitle = "Links";
+
+const links = [
+  {
+    title: "Latest Video: Coding a Virtual Pet with OctoStudio",
+    url: "https://youtu.be/xFgwxr4HP6A?si=PUVgd3j1OsgHofJx",
+    icon: "play",
+  },
+  {
+    title: "Fix the Space Ship - A STEM Engagement Escape Room",
+    url: "https://github.com/brggs/Fix-The-SpaceShip-Escape-Room",
+    icon: "rocket",
+  },
+  {
+    title: "How to: Build your own escape room puzzle with the micro:bit",
+    url: "https://curiouscoders.substack.com/p/build-your-own-escape-room-puzzle",
+    icon: "microchip",
+  },
+  {
+    title: "Subscribe to our newsletter",
+    url: "https://curiouscoders.substack.com/",
+    icon: "newspaper",
+  },
+  {
+    title: "Get in touch",
+    url: "mailto:hello@curiouscoders.co.uk",
+    icon: "envelope",
+  },
+];
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <section
+    class="mt-[-90px] pt-20 h-200 bg-gray-600 bg-blend-overlay"
+  style={`background-image: url(${headerBackground.src})`}
+  >
+    <Container>
+      <div class="px-8 pt-6 pb-2 flex flex-col items-center text-center">
+        <div class="space-y-4 mt-6">
+          {
+            links.map((link) => (
+              <LinkButton title={link.title} url={link.url} icon={link.icon} />
+            ))
+          }
+        </div>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>
