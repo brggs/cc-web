@@ -5,24 +5,16 @@ description: 'Step by step instructions for creating your own micro:bit puzzle r
 author: 'Andy Briggs'
 image:
     url: './robots.jpg'
-    alt: 'The Astro logo on a dark background with a pink glow.'
+    alt: 'Four cardboard robots with micro:bits attached.'
 tags: ["Tutorial", "mirco:bit", "Age 7+"]
 ---
 
-Craft your own electronic puzzle robot!  Follow the step by step instructions.
-
 ![Code...](robots.jpg)
 
-Robot protecting your secret, only a special actino will reveal it.
+In this tutorial, you'll build your own puzzle robot using the micro:bit.  You'll program the robot to keep a secret, which it will only reveal when it detects the right inputs.  
 
-Making and code your own puzzle robot with the micro:bit and cardboard, coding it up to make a fun challenge for your friends and family!
+Challenge your friends and family to see if they can solve the clue and find the secret!
 
-See if the can figure out the clue and revela hte secret word!
-
-
-We’re going to design and make our robot out of cardboard, come up with a secret way to get it to reveal its password!
-
-We'll code the robot give a clue, then it will be up to your freidns to work out what to do.
 
 ## What you’ll need
 
@@ -172,17 +164,14 @@ Congratulations, you’ve created your own puzzle robot!
 ![Code...](make-13.jpg)
   
   
-Now it’s time to challenge your friends - can they figure out the clue and work out how to get the secret word?
+Now it’s time to challenge your friends - can they solve the clue and work out how to get the secret word?
 
-You cna reprogram your robot with a different input protecting hte secret word.
+Once they've found the secret, why not reprogram your robot with a more difficult challenge!
 
+Here are a few ideas for a more advanced robot:
 
-Or try these ideas for taking it to hte next level
+* Chain steps together - one secret action unlocks the next!  Show the clue for the next step when the first has been solved.
+* Create a problem 2 micro:bits - require the secret action on both at the same time, and use radio to talk to each other!
+* Add extra components to your robot, like LEDs for eyes. You could even make this part of the puzzle - press the button when the eyes light up!
 
-* Chain steps together - one secret action unlocks the next!  Show the clue for hte next step when the first has been solved.
-* With 2 micro bits - require the secret action on both at the same time, and use radio to talk to each other!
-* Add extra components to your robot, like LEDs for eyes!  You could even make this part of the puzzle - press the button when the eyes light up!
-
-* An ABBA based robot - Press A, then B, B, A buttons in order to unlcok the secret!
-
-Let me know what you build - send me photos and I'll share them here!
+I hope you enjoy making your robots!  Let me know how you get on, and please share photos of your designs, I'd love to see what you create!

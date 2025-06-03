@@ -1,28 +1,41 @@
 ---
 import Container from "./Container.astro";
-//TODO Load header image
+import { Picture } from "astro:assets";
 
-import { Picture } from 'astro:assets';
-import heroImage from '../assets/cc-logo.png';
+import heroImage from "../assets/cc-logo.png";
+import headerBackground from '../assets/header-bg.png';
 ---
 
-<section class="mt-[-90px] pt-20 h-200 bg-gray-600 bg-[url(/public/hero-bg.png)] bg-blend-overlay">
+<section
+  class=`mt-[-90px] pt-20 h-200 bg-gray-600 bg-blend-overlay`
+  style={`background-image: url(${headerBackground.src})`}
+>
   <Container>
     <div class="px-8 pt-6 pb-2 flex flex-col items-center text-center">
-      <Picture class="w-48 md:w-72 rounded-full" src={heroImage} formats={['avif', 'webp']} alt="The Curious Coders Logo, white text on a pink background." />
+      <Picture
+        class="w-48 md:w-72 rounded-full"
+        src={heroImage}
+        formats={["avif", "webp"]}
+        alt="The Curious Coders Logo, white text on a pink background."
+      />
       <div class="bg-black/75 px-6 py-4 my-8 rounded-2xl max-w-180">
         <h2 class="text-3xl font-bold text-pink-500 my-4 mx-auto">
-          Tech Tutorials for Curious Kids
+          Exploring Technology for Curious Kids
         </h2>
         <p class="text-lg mb-6">
-          Fun and engaging coding & tech videos that spark creativity and build tech skills for the future!
+          Fun and engaging coding & tech videos, tutorials and activities that
+          spark creativity and build tech skills for the future!
         </p>
       </div>
-      <button
-        class="bg-pink-700 hover:bg-opacity-80 text-white font-bold p-4 px-6 button rounded-full transition-colors"
+      <a
+        href="https://www.youtube.com/@Curious-Coders"
+        class="bg-pink-600 drop-shadow-2xl text-primary px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-pink-800 transition-colors"
+        target="_blank"
+        rel="noopener noreferrer"
       >
-        Subscribe
-      </button>
+        <i class="fab fa-youtube" }></i>
+        Subscribe on YouTube
+      </a>
     </div>
   </Container>
 </section>
