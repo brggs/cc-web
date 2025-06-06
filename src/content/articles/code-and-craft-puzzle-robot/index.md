@@ -38,15 +38,15 @@ To build your robot, you will need:
 
 Start with a piece of coloured card, roughly A5 size.  This is going to be the main colour of the robot, so pick the colour you’d like.
 
-Next stick this to a piece of the thicker cardboard, to give it some strength.  We’ll be cutting our robot shape out of this later, so the edges don’t need to line up neatly.
+Next stick this to a piece of the thicker cardboard to give it some strength.  We’ll be cutting our robot shape out of this later, so the edges don’t need to line up neatly.
 
 ![Code...](make-1.jpg)
 
-Now use a pencil draw the outline of our robot.  There are all sorts of shapes you can choose from - you can give it a head and feet, or a big rounded body like R2D2.  Use your imagination and go for whatever you like!
+Now use a pencil draw the outline of your robot.  There are all sorts of shapes you can choose from - you can give it a head and feet, or a big rounded body like R2D2.  Use your imagination and go for whatever you like!
 
 ![Code...](make-2.jpg)
 
-Now we need to decide where the micro:bit is going to go.  We need to leave enough space for it to be attached later on, so place it on the robot and draw a pencil line to mark the shape.  I’ve put the micro:bit in the middle of most of my robots, but it could also work well as the head!
+Now we need to decide where the micro:bit is going to go.  We need to leave enough space for it to be attached later on, so place it on the robot and draw a pencil line around it to mark the shape.  I’ve put the micro:bit in the middle of most of my robots, but it could also work well as the head!
 
 ![Code...](make-4.jpg)
 
@@ -56,11 +56,11 @@ Now it’s time to cut the robot out, following the line you drew earlier.
 
 ![Code...](make-3.jpg)
 
-You should now have a robot shape, ready to decorate!
+You should now have a robot shape ready to decorate!
 
 ![Code...](make-5.jpg)
 
-Finally, add some features to the robots to bring them to life!  You can use a different coloured card to add on things like eyes, marker pens to draw details such as gears and circuitry, or to add colours (metallic pens would be ideal for this).  You could even add stickers or things like googly eyes!
+Finally, add some features to your robot to bring it to life!  You can use a different coloured card to add on things like eyes, marker pens to draw details such as gears and circuitry, or to add colours (metallic pens would be ideal for this).  You could even add stickers or things like googly eyes!
 
 ![Code...](make-6.jpg)
 
@@ -69,17 +69,17 @@ Now the robots are ready, it’s time to move on to the micro:bit!
 ![Code...](make-7.jpg)
 
 ## Designing the puzzle
-We’re going to program the micro:bit with a secret word, which it will only reveal when it receives the right input.
+We’re going to program the micro:bit with a secret word which it will only reveal when it receives the right input.
 
 There are lots of ways we can use the micro:bit's features for this.  For example, you could show the secret word when your micro:bit robot:
 * Gets turned upside down
 * Hears a loud noise (micro:bit version 2 needed for this!)
 * Has its buttons, or the touch logo pressed
-* Sees its somewhere dark
+* Sees it's somewhere dark
 * Points North (it has a built in compass!)
 * Gets shaken
 
-Have a look at [the micro:bit website](https://microbit.org/get-started/features/overview/) for the full list of features, if you're not sure what to choose!
+Have a look at [the micro:bit website](https://microbit.org/get-started/features/overview/) for the full list of features if you're not sure what to choose!
 
 We'll look at how to program three of these options in the next section - shaking, noise detection and an option combining two inputs.
 
@@ -98,7 +98,7 @@ I've also added some code to the `on start` block, so the micro:bit will show a 
 
 If you'd like to detect different types of movement, like getting turned upside down or detecting when the micro:bit is dropped, click the drop down menu in the `on shake` block.
 
-Next let’s look at the code to show the secret word when the micro:bit hears a loud noise.  
+Next, let’s look at the code to show the secret word when the micro:bit hears a loud noise.  
 
 ![Code...](code-loud.png)
 
@@ -128,7 +128,7 @@ Here are the clues for the loud noise...
 
 ![Code...](clue-double.png)
 
-Once you’ve added your clue, your code is finished and ready to download the code to your micro:bit.
+Once you’ve added your clue, your code is finished and ready to download to your micro:bit.
 
 Connect your micro:bit to your computer and click the *Download* button, then don't forget to test that the puzzle and the clue are working correctly.
 
@@ -171,7 +171,7 @@ Once they've found the secret, why not reprogram your robot with a more difficul
 Here are a few ideas for a more advanced robot:
 
 * Chain steps together - one secret action unlocks the next!  Show the clue for the next step when the first has been solved.
-* Create a problem 2 micro:bits - require the secret action on both at the same time, and use radio to talk to each other!
+* Create a problem with two micro:bits - require the secret action on both at the same time, and use radio to talk to each other!
 * Add extra components to your robot, like LEDs for eyes. You could even make this part of the puzzle - press the button when the eyes light up!
 
 I hope you enjoy making your robots!  Let me know how you get on, and please share photos of your designs, I'd love to see what you create!
