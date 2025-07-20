@@ -1,9 +1,13 @@
 ---
+import { Picture } from "astro:assets";
+
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Container from "../components/Container.astro";
 import LinkButton from "../components/LinkButton.astro";
 
-import headerBackground from '../assets/header-bg.png';
+import heroImage from "../assets/cc-logo.png";
+import headerBackground from "../assets/header-bg.png";
+
 const pageTitle = "Links";
 
 const links = [
@@ -33,15 +37,56 @@ const links = [
     icon: "envelope",
   },
 ];
+
+const socialLinks = [
+  {
+    url: "https://www.instagram.com/mrabriggs/",
+    icon: "fab fa-instagram",
+  },
+  {
+    url: "https://www.linkedin.com/in/brggs/",
+    icon: "fab fa-linkedin",
+  },
+  {
+    url: "https://bsky.app/profile/andy.curiouscoders.co.uk",
+    icon: "fab fa-bluesky",
+  },
+  {
+    url: "https://github.com/brggs",
+    icon: "fab fa-github",
+  },
+];
 ---
 
 <BaseLayout pageTitle={pageTitle}>
   <section
     class="mt-[-90px] pt-20 h-200 bg-gray-600 bg-blend-overlay"
-  style={`background-image: url(${headerBackground.src})`}
+    style={`background-image: url(${headerBackground.src})`}
   >
     <Container>
-      <div class="px-8 pt-6 pb-2 flex flex-col items-center text-center">
+      <div class="px-8 pb-6 flex flex-col items-center text-center">
+        <Picture
+          class="w-36 rounded-full"
+          src={heroImage}
+          formats={["avif", "webp"]}
+          alt="The Curious Coders Logo, white text on a pink background."
+        />
+      </div>
+      <div class="flex justify-center space-x-4">
+        {
+          socialLinks.map((link) => (
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-slate-50 hover:text-slate-200 transition-colors duration-300 text-2xl sm:text-3xl md:text-4xl hover:animate-wiggle"
+            >
+              <i class={`${link.icon} font-bold`} />
+            </a>
+          ))
+        }
+      </div>
+      <div class="px-8 pb-2 flex flex-col items-center text-center">
         <div class="space-y-4 mt-6">
           {
             links.map((link) => (
