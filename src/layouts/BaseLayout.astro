@@ -2,7 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
-const { pageTitle } = Astro.props;
+const { pageTitle, description, openGraph } = Astro.props;
 const isProd = import.meta.env.PROD;
 ---
 
@@ -32,6 +32,21 @@ const isProd = import.meta.env.PROD;
       )
     }
     <title>{pageTitle} - Curious Coders</title>
+    <link rel="canonical" href={Astro.url.href} />
+    {
+      description ? (
+        <meta name="description" content={description} />
+      ) : null
+    }
+    {
+      openGraph ? (
+        <meta property="og:title" content={openGraph.title} />
+        <meta property="og:type" content={openGraph.type} />
+        <meta property="og:image" content={openGraph.image} />
+        <meta property="og:url" content={openGraph.url || Astro.url.href} />
+      ) : null
+    }
+    <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body class="min-h-screen">
     <Header />

@@ -3,10 +3,16 @@ import TitleImage from "../components/TitleImage.astro";
 import BaseLayout from "./BaseLayout.astro";
 
 const { frontmatter } = Astro.props;
+
+const openGraph = {
+  title: frontmatter.title,
+  type: 'website',
+  image: frontmatter.image.url.src,
+}
 ---
 
-<BaseLayout pageTitle={frontmatter.title}>
-  <TitleImage title={frontmatter.title} , description={frontmatter.description}, author={frontmatter.author}, date={frontmatter.pubDate.toLocaleDateString()} />
+<BaseLayout pageTitle={frontmatter.title} description={frontmatter.description} openGraph={openGraph}>
+  <TitleImage title={frontmatter.title} description={frontmatter.description} author={frontmatter.author} date={frontmatter.pubDate.toLocaleDateString()} />
 
   <section class="py-8">
     <div class="max-w-4xl mx-auto px-6 md:px-12">
