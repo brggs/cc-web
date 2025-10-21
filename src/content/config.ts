@@ -15,6 +15,18 @@ const articlesCollection = defineCollection({
   }),
 });
 
+const activitiesCollection = defineCollection({
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    description: z.string(),
+    image: z.object({
+      url: image(),
+      alt: z.string().optional()
+    }).optional(),
+  }),
+});
+
 export const collections = {
   'articles': articlesCollection,
+  'activities': activitiesCollection,
 };

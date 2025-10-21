@@ -1,0 +1,64 @@
+---
+import { Image } from "astro:assets";
+import Container from "../components/Container.astro";
+import TitleImage from "../components/TitleImage.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const pageTitle = "Activities";
+const pageDescription = "Activities";
+const activities = await getCollection("activities");
+
+// allPosts.sort((a, b) => {
+//    return b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+//  });
+
+const colourMap = {
+  pink: "bg-pink-700",
+  default: "",
+};
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <TitleImage title={pageTitle} , description={pageDescription} />
+  {
+    activities.map((activity, index) => (
+      <section class={`${colourMap[index % 2 === 0 ? "pink" : "default"]} py-12`}>
+        <Container>
+          <div
+            class={`flex flex-col gap-8 items-center ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
+          >
+            <div class="w-full md:w-1/2">
+              <h2 class="text-2xl text-center font-semibold mb-6">
+                {activity.data.title}
+              </h2>
+              <p class="mb-4">{activity.data.description}</p>
+                    <a
+        href={`/articles/${activity.slug}`}
+        class="bg-pink-600 drop-shadow-2xl text-primary px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-pink-800 transition-colors"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fab fa-youtube" }></i>
+        Read more...
+      </a>
+            </div>
+            <div class="w-full md:w-1/2">
+              <div class="relative aspect-video rounded-lg overflow-hidden drop-shadow-lg">
+                {activity.data.image && (
+                  <Image
+                    src={activity.data.image.url}
+                    alt={activity.data.image.alt || activity.data.title}
+                    class="w-full h-full object-cover"
+                    width={800}
+                    height={400}
+                  />
+                )}
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+    ))
+  }
+</BaseLayout>
