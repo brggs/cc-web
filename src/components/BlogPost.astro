@@ -19,7 +19,7 @@ const { url, title, pubDate, description, image } = Astro.props;
     </div>
     <div class="p-5">
       <h2 class="text-xl mb-2 text-pink-400">{title}</h2>
-      {pubDate && <p class="text-pink-300 text-sm mb-2">{new Date(pubDate).toLocaleDateString()}</p>}
+      {pubDate && <p class="text-pink-300 text-sm mb-2">{new Date(pubDate).toLocaleDateString('en-GB')}</p>}
       {description && <p class="text-gray-300">{description}</p>}
     </div>
   </a>
