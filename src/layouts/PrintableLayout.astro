@@ -1,0 +1,214 @@
+---
+import TitleImage from "../components/TitleImage.astro";
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+
+// Set `sectionsPerPage: true` in a page's frontmatter to start each `##`
+// section on a fresh sheet when printed, so they can be handed out separately.
+const sectionsPerPage = frontmatter.sectionsPerPage ?? false;
+
+// Set `leaderIntro: true` when everything above the first `##` is guidance for
+// whoever is running the session - it is then left out of the printed sheets.
+const leaderIntro = frontmatter.leaderIntro ?? false;
+---
+
+<BaseLayout pageTitle={frontmatter.title} description={frontmatter.description}>
+  <div class="print:hidden">
+    <TitleImage title={frontmatter.title} description={frontmatter.description} />
+  </div>
+
+  <section class="py-8">
+    <div class="max-w-4xl mx-auto px-6 md:px-12">
+      <div class="print:hidden flex justify-end mb-6">
+        <button
+          id="print-button"
+          type="button"
+          class="bg-pink-600 drop-shadow-2xl px-6 py-3 rounded-full font-bold inline-flex items-center gap-2 hover:bg-pink-800 transition-colors"
+        >
+          <i class="fa-solid fa-print"></i>
+          Print / Save as PDF
+        </button>
+      </div>
+
+      <article
+        class:list={[
+          "printable mx-auto prose prose-pink prose-invert prose-h2:text-pink-400 prose-img:mx-auto prose-img:rounded-2xl",
+          sectionsPerPage && "sections-per-page",
+          leaderIntro && "leader-intro",
+        ]}
+      >
+        <!-- The banner is hidden when printing, so the title needs repeating here. -->
+        <h1 class="hidden print:block">{frontmatter.title}</h1>
+        <slot />
+      </article>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  document.getElementById("print-button")?.addEventListener("click", () => {
+    window.print();
+  });
+</script>
+
+<!-- Global, because the page body is slotted in from markdown and so is out of
+     reach of Astro's scoped styles. -->
+<style is:global>
+  @media print {
+    @page {
+      margin: 15mm;
+    }
+
+    /* Drop the site chrome - header, call to action and footer all live
+       outside #page-content. */
+    body > *:not(#page-content) {
+      display: none !important;
+    }
+
+    html,
+    body,
+    #page-content {
+      background: #fff !important;
+      color: #000 !important;
+    }
+
+    .printable,
+    .printable * {
+      color: #000 !important;
+      background: transparent !important;
+    }
+
+    .printable h1,
+    .printable h2,
+    .printable h3 {
+      color: #9d174d !important;
+      break-after: avoid;
+    }
+
+    .printable a {
+      color: #9d174d !important;
+      text-decoration: underline;
+    }
+
+    /* Links can't be clicked on paper, so spell them out. */
+    .printable a[href^="http"]::after {
+      content: " (" attr(href) ")";
+      font-size: 0.85em;
+      word-break: break-all;
+    }
+
+    .printable img {
+      max-width: 100% !important;
+    }
+
+    /* The list numbers and bullets are a pale pink on screen, which prints
+       almost invisibly. */
+    .printable li::marker {
+      color: #000 !important;
+    }
+
+    .printable li,
+    .printable img,
+    .printable pre,
+    .printable blockquote,
+    .printable table {
+      break-inside: avoid;
+    }
+
+    /* The site's on screen text is deliberately large, which is too loose for
+       a handout - this brings a challenge back down to a single sheet. */
+    .printable {
+      font-size: 11pt;
+      line-height: 1.4;
+    }
+
+    .printable h1 {
+      font-size: 19pt;
+      margin: 0 0 0.4em;
+    }
+
+    .printable h2 {
+      font-size: 15pt;
+      margin: 0 0 0.5em;
+    }
+
+    .printable h3 {
+      font-size: 12pt;
+      margin: 0.8em 0 0.3em;
+    }
+
+    .printable p,
+    .printable ul,
+    .printable ol,
+    .printable blockquote {
+      margin: 0.5em 0;
+    }
+
+    .printable li {
+      margin: 0.2em 0;
+    }
+
+    .printable ul,
+    .printable ol {
+      padding-left: 1.4em;
+    }
+
+    .printable blockquote {
+      padding-left: 0.8em;
+      margin: 0.7em 0;
+    }
+
+    /* Code blocks don't need the body size, and the prose line height leaves
+       them very airy on paper. */
+    .printable pre {
+      font-size: 9.5pt;
+      line-height: 1.35;
+      padding: 0.6em 0.8em;
+      margin: 0.6em 0;
+    }
+
+    /* One `##` section per sheet, so each challenge can be handed out on its
+       own.  The intro above the first heading gets the first sheet. */
+    .sections-per-page h2 {
+      break-before: page;
+      /* Chrome ignores break-after: avoid on an element that also breaks
+         before it, so hold the heading to its first paragraph instead. */
+      break-after: auto;
+    }
+
+    .sections-per-page h2 + * {
+      break-before: avoid;
+    }
+
+    /* The page break does the separating, so the rules between sections would
+       just leave a stray line at the foot of each sheet. */
+    .sections-per-page hr {
+      display: none !important;
+    }
+
+    /* The preamble above the first section heading is for the session leader,
+       so it stays on screen and off the handouts.  The page title heading sits
+       up there too, and goes with it. */
+    .leader-intro > * {
+      display: none;
+    }
+
+    .leader-intro > h2:first-of-type,
+    .leader-intro > h2:first-of-type ~ * {
+      display: revert;
+    }
+
+    /* Without this the dropped preamble leaves a blank opening sheet. */
+    .leader-intro > h2:first-of-type {
+      break-before: auto;
+    }
+
+    /* Nothing after the closing rule belongs on a handout - that's the
+       "back to the activity" link, which can't be clicked on paper. */
+    .printable > hr:last-of-type,
+    .printable > hr:last-of-type ~ * {
+      display: none !important;
+    }
+  }
+</style>

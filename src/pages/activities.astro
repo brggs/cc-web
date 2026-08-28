@@ -9,9 +9,9 @@ const pageTitle = "Activities";
 const pageDescription = "Activities";
 const activities = await getCollection("activities");
 
-// allPosts.sort((a, b) => {
-//    return b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
-//  });
+activities.sort((a, b) => {
+  return b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+});
 
 const colourMap = {
   pink: "bg-pink-700",

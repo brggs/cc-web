@@ -59,3 +59,17 @@
     }
   }
 } */
+
+/* Tailwind Typography wraps inline code in literal backticks and blockquotes in
+   curly quotes.  Neither reads well in the tutorial style content here.
+   Deliberately outside @layer - the plugin's own rules sit in a later layer, so
+   a layered override of the same specificity would lose to them. */
+.prose code::before,
+.prose code::after {
+  content: "";
+}
+
+.prose blockquote p:first-of-type::before,
+.prose blockquote p:last-of-type::after {
+  content: "";
+}
