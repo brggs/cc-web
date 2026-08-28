@@ -27,7 +27,7 @@ There is no linter or type-check script; `tsconfig.json` extends `astro/tsconfig
 Content lives in `src/content/` as two collections defined in `src/content/config.ts`:
 
 - **`articles`** — requires `title`, `pubDate` (a date, parsed by the schema), `description`, `author`; optional `image` and `tags`.
-- **`activities`** — requires `title`, `pubDate`, `description`; optional `image`. The activities page sorts by `pubDate` descending, so the newest activity is the one at the top of the page.
+- **`activities`** — requires `title`, `pubDate`, `description`; optional `image` and `draft`. The activities page sorts by `pubDate` descending, so the newest activity is the one at the top of the page. Read activities through `getPublishedActivities()` in `src/utils/activities.ts` rather than `getCollection` directly — it drops `draft: true` entries from the build (listing *and* their own page) while still rendering them under `npm run dev` so drafts can be previewed.
 
 Each entry is a **directory** containing `index.md` plus its images, e.g. `src/content/articles/coding-with-python/{index.md,cover.jpeg,...}`. The directory name becomes the slug and the URL (`/articles/coding-with-python`). Frontmatter `image.url` is a **relative path** (`'./cover.jpeg'`) resolved through Astro's `image()` helper, so it must point at a real file in that directory; images referenced from the markdown body use bare filenames (`![alt](cover.jpeg)`).
 
@@ -41,6 +41,15 @@ Rendering path: `src/pages/articles/[...slug].astro` (and the activities equival
 - Tailwind v4 via `@tailwindcss/vite`, configured in `src/styles/global.css` with `@import "tailwindcss"` / `@plugin` / `@theme` — **not** through `tailwind.config.js`, which is a leftover v3 file that Tailwind no longer reads. Theme tokens go in the `@theme` block in `global.css`. (Note: `text-primary`, used in a few components, is not defined anywhere and currently does nothing.)
 - Fonts (Jost) and Font Awesome icons load from CDNs in `BaseLayout`; icon classes like `fa-brands fa-youtube` depend on that.
 - Dark palette is set on `html` in `global.css` (`bg-[#0c0b1e] text-white`); there is no light mode.
+
+## Printable handouts
+
+`src/layouts/PrintableLayout.astro` backs pages meant to be printed and handed out (`src/pages/activities/makecode-arcade-code-a-maze/worksheet.md` is the one in use). It's a markdown-page layout, chosen via `layout:` frontmatter, and two frontmatter flags drive its print CSS:
+
+- `sectionsPerPage: true` — every `##` starts a fresh sheet, so one section is one handout. Sub-headings must therefore be `###` or lower, or they take a sheet each.
+- `leaderIntro: true` — everything above the first `##` is guidance for whoever runs the session, and is dropped from the print out (along with the print-only page title, which sits up there too).
+
+The print block also inverts the site's dark theme to black-on-white, drops the site chrome, spells out external URLs after link text, and prints at 11pt — the on-screen size overflows a sheet. `tests/worksheet-printing.spec.js` covers all of this via `page.emulateMedia({ media: 'print' })`; it's the cheapest way to check print behaviour without rendering a PDF.
 
 ## Known dead code
 

@@ -1,9 +1,9 @@
 ---
-import { getCollection } from 'astro:content';
+import { getPublishedActivities } from '../../utils/activities';
 import MarkdownActivityLayout from '../../layouts/MarkdownActivityLayout.astro';
 
 export async function getStaticPaths() {
-  const activities = await getCollection('activities');
+  const activities = await getPublishedActivities();
   return activities.map(entry => ({
     params: { slug: entry.slug },
     props: { entry },

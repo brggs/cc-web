@@ -3,11 +3,11 @@ import { Image } from "astro:assets";
 import Container from "../components/Container.astro";
 import TitleImage from "../components/TitleImage.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
+import { getPublishedActivities } from "../utils/activities";
 
 const pageTitle = "Activities";
 const pageDescription = "Activities";
-const activities = await getCollection("activities");
+const activities = await getPublishedActivities();
 
 activities.sort((a, b) => {
   return b.data.pubDate.valueOf() - a.data.pubDate.valueOf();

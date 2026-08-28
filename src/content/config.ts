@@ -20,6 +20,8 @@ const activitiesCollection = defineCollection({
     title: z.string(),
     pubDate: z.date(),
     description: z.string(),
+    // Drafts are kept out of the built site - see getPublishedActivities().
+    draft: z.boolean().optional(),
     image: z.object({
       url: image(),
       alt: z.string().optional()

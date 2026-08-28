@@ -33,6 +33,44 @@ test.describe('Basic page rendering', () => {
         await expect(page.locator('h1')).toBeVisible();
     });
 
+    test('activities page renders, newest first', async ({ page }) => {
+        await page.goto('/activities');
+
+        // Check page loaded successfully
+        await expect(page).toHaveTitle(/Activities/i);
+
+        // The most recently published activity is listed at the top
+        const firstActivity = page.locator('#page-content section').first();
+        await expect(firstActivity.getByRole('heading')).toHaveText(/Mythical Hero's Maze/i);
+        await expect(firstActivity.locator('img')).toBeVisible();
+        await expect(firstActivity.getByRole('link', { name: /read more/i })).toBeVisible();
+    });
+
+    test('activity page renders and links to its work sheets', async ({ page }) => {
+        await page.goto('/activities/makecode-arcade-code-a-maze');
+
+        // Check page loaded successfully
+        await expect(page).toHaveTitle(/Mythical Hero's Maze/i);
+        await expect(page.getByRole('heading', { name: /Running the session/i })).toBeVisible();
+
+        // The work sheets are linked from the activity
+        await expect(page.getByRole('link', { name: /work sheets/i })).toHaveAttribute(
+            'href', '/activities/makecode-arcade-code-a-maze/worksheet'
+        );
+    });
+
+    test('draft activities are left out of the built site', async ({ page }) => {
+        await page.goto('/activities');
+
+        // Neither draft is advertised on the listing...
+        await expect(page.getByText(/Curious Chicken Shop/i)).toHaveCount(0);
+        await expect(page.getByText(/Fix the Space Ship/i)).toHaveCount(0);
+
+        // ...and their pages aren't built either.
+        const response = await page.goto('/activities/social-engineering-chicken-shop');
+        expect(response?.status()).toBe(404);
+    });
+
     test('links page renders', async ({ page }) => {
         await page.goto('/links');
 
