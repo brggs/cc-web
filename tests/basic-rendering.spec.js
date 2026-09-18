@@ -59,14 +59,32 @@ test.describe('Basic page rendering', () => {
         );
     });
 
+    test('escape room activity page renders with its video and build guide links', async ({ page }) => {
+        await page.goto('/activities/microbit-escape-room');
+
+        // Check page loaded successfully
+        await expect(page).toHaveTitle(/Fix the Space Ship/i);
+        await expect(page.getByRole('heading', { name: /How it works/i })).toBeVisible();
+
+        // The walkthrough video is embedded
+        await expect(page.locator('iframe[src*="youtube.com/embed/0pUaQZcnjMQ"]')).toBeVisible();
+
+        // The build details live in the GitHub repository
+        await expect(
+            page.locator('a[href^="https://github.com/brggs/Fix-The-SpaceShip-Escape-Room"]').first()
+        ).toBeVisible();
+
+        // Photos of the build are shown
+        expect(await page.locator('#page-content img').count()).toBeGreaterThanOrEqual(4);
+    });
+
     test('draft activities are left out of the built site', async ({ page }) => {
         await page.goto('/activities');
 
-        // Neither draft is advertised on the listing...
+        // The draft isn't advertised on the listing...
         await expect(page.getByText(/Curious Chicken Shop/i)).toHaveCount(0);
-        await expect(page.getByText(/Fix the Space Ship/i)).toHaveCount(0);
 
-        // ...and their pages aren't built either.
+        // ...and its page isn't built either.
         const response = await page.goto('/activities/social-engineering-chicken-shop');
         expect(response?.status()).toBe(404);
     });
